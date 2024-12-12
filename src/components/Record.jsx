@@ -1,13 +1,31 @@
-import { Box, Flex, Grid, GridItem, Heading } from '@chakra-ui/react';
+import { Box, Button, Flex, Grid, GridItem, Heading } from '@chakra-ui/react';
 import Image from 'next/image';
+
 import React from 'react';
 import PointBox from './PointBox';
+import Link from 'next/link';
 
 const recordList = [
-    { label: '오늘의 산책 기록', img: <Image alt="" src="/images/common/step_dog.png" width={50} height={50} /> },
-    { label: '건강 기록', img: <Image alt="" src="/images/common/step_dog.png" width={50} height={50} /> },
-    { label: '미용 기록', img: <Image alt="" src="/images/common/step_dog.png" width={50} height={50} /> },
-    { label: '식단 기록', img: <Image alt="" src="/images/common/step_dog.png" width={50} height={50} /> },
+    {
+        label: '산책 기록',
+        img: <Image alt="" src="/images/common/step_dog.png" width={30} height={30} />,
+        onclick: '/walk_record',
+    },
+    {
+        label: '건강 기록',
+        img: <Image alt="" src="/images/common/step_dog.png" width={30} height={30} />,
+        onclick: '/health_history',
+    },
+    {
+        label: '미용 기록',
+        img: <Image alt="" src="/images/common/step_dog.png" width={30} height={30} />,
+        onclick: '/beauty_record',
+    },
+    {
+        label: '식단 기록',
+        img: <Image alt="" src="/images/common/step_dog.png" width={30} height={30} />,
+        onclick: '/diet_log',
+    },
 ];
 
 const Record = () => {
@@ -35,25 +53,22 @@ const Record = () => {
 
             {/* 카드의 본문 부분 */}
             <Box className="mt-5">
-                <Flex direction="column" gap={3}>
-                    {recordList.map(({ label, img: Img }, index) => (
-                        <Box
-                            key={index}
-                            align="center"
-                            bg="#FFCF9D"
-                            borderRadius="xl"
-                            className="my-1"
-                            p={4} // padding 추가
-                        >
-                            <Flex alignItems="center" justifyContent="space-between">
-                                {/* label */}
-                                <Heading textAlign="center" size="sm">
-                                    {label}
-                                </Heading>
-                                {/* img가 있는 경우에만 렌더링 */}
-                                {Img}
-                            </Flex>
-                        </Box>
+                <Flex direction="column" gap={4}>
+                    {recordList.map(({ label, img: Img, onclick }, index) => (
+                        <Link key={index} href={onclick} passHref>
+                            <Button
+                                borderRadius="xl"
+                                className="my-1"
+                                p={4} // padding 추가
+                                width={'100%'}
+                                text={'md'}
+                            >
+                                <Flex alignItems="center" justifyContent="space-between" width="100%">
+                                    <Heading size="sm">{label}</Heading>
+                                    <Box flexShrink={0}>{Img}</Box>
+                                </Flex>
+                            </Button>
+                        </Link>
                     ))}
                 </Flex>
             </Box>

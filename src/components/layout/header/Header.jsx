@@ -14,9 +14,10 @@ const piedra = Piedra({
     display: 'swap', // 폰트 로딩 전략 설정
 });
 const navigation = [
-    { name: '식단기록', href: '/' },
-    { name: '건강기록', href: '/' },
-    { name: '미용기록', href: '/' },
+    { name: '산책기록', href: '/walk_record' },
+    { name: '건강기록', href: '/health_history' },
+    { name: '미용기록', href: '/beauty_record' },
+    { name: '식단기록', href: '/diet_log' },
 ];
 
 const Header = () => {

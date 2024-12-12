@@ -20,7 +20,7 @@ const Step2 = () => {
                             </Flex>
                         </CardBody>
                         <CardFooter>
-                            <div>0.0km</div>
+                            <div className="text-3xl">0.0km</div>
                         </CardFooter>
                     </Card>
                 </GridItem>
@@ -36,7 +36,7 @@ const Step2 = () => {
                             </Flex>
                         </CardBody>
                         <CardFooter>
-                            <div>0분</div>
+                            <div className="text-3xl">0분</div>
                         </CardFooter>
                     </Card>
                 </GridItem>

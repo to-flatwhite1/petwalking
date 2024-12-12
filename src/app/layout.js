@@ -1,7 +1,7 @@
 'use client';
 import { Providers } from '@/components/providers';
 import { Noto_Sans } from 'next/font/google';
-import localFont from 'next/font/local';
+
 import './globals.css';
 const notoSans = Noto_Sans({
     subsets: ['latin'], // 사용할 글꼴의 하위셋을 설정 (예: 'latin', 'cyrillic', 'greek' 등)

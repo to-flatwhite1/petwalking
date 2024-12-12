@@ -88,7 +88,7 @@ export const Temperature = () => {
 
     return (
         <div style={{ display: 'block', height: '100%' }}>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col ">
                 {loading ? (
                     <div className="notice">날씨 정보를 불러오는 중...</div>
                 ) : weatherData ? (
@@ -104,10 +104,12 @@ export const Temperature = () => {
                                 />
                             </Flex>
                         </Flex>
-                        {/* <div className="city">🎪현재위치: {weatherData.cityName}</div> */}
-                        <div className="temp">현재 온도: {weatherData.temp} ℃</div>
-                        <div className="weather">현재 날씨: {weatherData.weatherDescription}</div>
-                        <p className="GmarketSansMedium">산책을 통해 활기찬 하루를 맞이해요!</p>
+
+                        <Flex direction="column" gap={3}>
+                            <div className="temp text-sm">현재 온도: {weatherData.temp} ℃</div>
+                            <div className="weather text-sm">현재 날씨: {weatherData.weatherDescription}</div>
+                            <p className="GmarketSansMedium text-sm">산책을 통해 활기찬 하루를 맞이해요!</p>
+                        </Flex>
                     </>
                 ) : (
                     <div className="notice">날씨 정보를 찾을 수 없습니다.</div>
