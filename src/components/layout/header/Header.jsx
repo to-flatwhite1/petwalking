@@ -32,7 +32,7 @@ const Header = () => {
     if (!isClient) return null; // 클라이언트에서만 렌더링하도록 처리
 
     return (
-        <header className="max-w-sm mx-auto fixed top-0 left-0 right-0 z-50 bg-white-700 backdrop-blur-md flex items-center h-20">
+        <header className="mx-auto bg-white-700 flex items-center h-16 w-full">
             <Container size="full" className="flex justify-between items-center">
                 <div aria-label="Global" className="flex items-center justify-between w-full">
                     <h1 className="flex">
@@ -41,13 +41,13 @@ const Header = () => {
                             <Flex justify="space-between" align="center" gap="8px">
                                 <Image
                                     alt=""
-                                    src="/images/common/petwalking_logo1.png"
+                                    src="/images/common/bichon01Logo.png"
                                     width={100}
                                     height={100}
-                                    className="h-16 w-auto"
+                                    className="h-10 w-auto"
                                 />
                                 <Flex>
-                                    <div className={`leading-3 ${piedra.className} text-2xl`}>pet Walking</div>
+                                    <div className={`leading-3 ${piedra.className} text-xl`}>pet Walking</div>
                                 </Flex>
                             </Flex>
                         </Link>
@@ -84,7 +84,7 @@ const Header = () => {
                                 <Flex justify="center" align="center" gap="8px">
                                     <Image
                                         alt=""
-                                        src="/images/common/petwalking_logo1.png"
+                                        src="/images/common/bichon02.png"
                                         width={100}
                                         height={100}
                                         className="h-16 w-auto"

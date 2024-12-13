@@ -87,7 +87,7 @@ export const Temperature = () => {
     }, [getPosition]);
 
     return (
-        <div style={{ display: 'block', height: '100%' }}>
+        <div className="block bg-red-600 rounded-xl">
             <div className="flex flex-col ">
                 {loading ? (
                     <div className="notice">날씨 정보를 불러오는 중...</div>
@@ -98,9 +98,11 @@ export const Temperature = () => {
                                 오늘의 날씨
                                 <Image
                                     src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
+                                    /* src="/images/common/cloudy-removebg-preview.png" */
                                     alt="Weather icon"
                                     width={100}
                                     height={80}
+                                    /* className="p-2" */
                                 />
                             </Flex>
                         </Flex>

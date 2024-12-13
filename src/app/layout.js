@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
                     <div
                         id="wrap"
                         className="mx-auto max-w-sm min-h-svh flex flex-col"
-                        style={{ backgroundColor: '#FFF0DC' }} /* #FFF0DC' */
+                        /* #FFF0DC' */
                     >
                         {children}
                     </div>

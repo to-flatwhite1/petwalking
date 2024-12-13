@@ -21,8 +21,8 @@ export default function LoginPage() {
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                     <Flex justify="center" align="center" gap="5px">
                         <Image
-                            alt=""
-                            src="/images/common/petwalking_logo1.png"
+                            alt="Logo"
+                            src="/images/common/bichon02.png"
                             width={100}
                             height={100}
                             className="h-16 w-auto"

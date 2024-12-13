@@ -7,11 +7,11 @@ import Link from 'next/link';
 
 const recordList = [
     {
-        label: '산책 기록',
+        label: '산책 기록 입력하러 가기!',
         img: <Image alt="" src="/images/common/step_dog.png" width={30} height={30} />,
         onclick: '/walk_record',
     },
-    {
+    /*   {
         label: '건강 기록',
         img: <Image alt="" src="/images/common/step_dog.png" width={30} height={30} />,
         onclick: '/health_history',
@@ -25,7 +25,7 @@ const recordList = [
         label: '식단 기록',
         img: <Image alt="" src="/images/common/step_dog.png" width={30} height={30} />,
         onclick: '/diet_log',
-    },
+    }, */
 ];
 
 const Record = () => {
@@ -47,7 +47,16 @@ const Record = () => {
 
                 {/* 두 번째 박스 */}
                 <GridItem>
-                    <Image alt="" src="/images/common/record.png" width={200} height={300} />
+                    <Box position="relative" width="100%" height="180px">
+                        {' '}
+                        {/* 부모의 크기를 설정 */}
+                        <Image
+                            alt="Walking Image"
+                            src="/images/common/dog12.png"
+                            layout="fill" // 부모 요소의 크기를 채움
+                            objectFit="contain" // 이미지를 비율을 유지하며 채우도록 설정
+                        />
+                    </Box>
                 </GridItem>
             </Grid>
 
@@ -56,18 +65,17 @@ const Record = () => {
                 <Flex direction="column" gap={4}>
                     {recordList.map(({ label, img: Img, onclick }, index) => (
                         <Link key={index} href={onclick} passHref>
-                            <Button
-                                borderRadius="xl"
-                                className="my-1"
-                                p={4} // padding 추가
-                                width={'100%'}
-                                text={'md'}
+                            <button
+                                className="w-full text-lg font-bold py-4 px-6 rounded-xl shadow-lg flex items-center justify-center gap-2"
+                                style={{
+                                    background: '#0396FF',
+                                    color: 'white',
+                                    /* linear-gradient(135deg, #ABDCFF 10%, #0396FF 100%)', */
+                                }}
                             >
-                                <Flex alignItems="center" justifyContent="space-between" width="100%">
-                                    <Heading size="sm">{label}</Heading>
-                                    <Box flexShrink={0}>{Img}</Box>
-                                </Flex>
-                            </Button>
+                                {Img && <span className="flex-shrink-0">{Img}</span>}
+                                <span>{label}</span>
+                            </button>
                         </Link>
                     ))}
                 </Flex>

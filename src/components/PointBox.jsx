@@ -5,9 +5,9 @@ import React from 'react';
 const PointBox = () => {
     return (
         <>
-            <h4 className="text-lg font-semibold mt-10 mb-2">포인트박스</h4>
+            <h4 className="text-lg font-semibold mt-5 mb-2">포인트박스</h4>
             <Button
-                bg="#FF8C00"
+                bg="#ffdc83"
                 borderRadius="xl"
                 // padding 추가
                 width={130}

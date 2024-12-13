@@ -19,7 +19,7 @@ const theme = extendTheme({
             },
             variants: {
                 custom: {
-                    bg: '#FFCF9D',
+                    bg: 'linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%)',
                     _hover: {
                         backgroundColor: '#FFBF80',
                     },
