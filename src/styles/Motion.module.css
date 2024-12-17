@@ -1,0 +1,44 @@
+.giftContainer {
+  position: relative;
+  width: 345px; /* 이동 범위 지정 */
+  height: 100px;
+  overflow: hidden; /* 이미지가 범위를 벗어나지 않도록 숨김 처리 */
+}
+
+.jumpingWrapper {
+  position: relative;
+  top: 0; /* 상단에 위치 */
+}
+.jumpingImage {
+  position: absolute;
+  animation: jump 1s ease-in-out infinite; /* 무한 반복되는 깡총깡총 애니메이션 */
+  top: 0; /* 이미지의 상단 위치를 0으로 설정 */
+}
+
+/* 점프 애니메이션 정의 */
+@keyframes jump {
+  0% {
+    transform: translateY(0); /* 시작 위치 */
+  }
+  25% {
+    transform: translateY(-10px); /* 첫 번째 점프 */
+  }
+  50% {
+    transform: translateY(0); /* 내려오기 */
+  }
+  75% {
+    transform: translateY(-10px); /* 두 번째 점프 */
+  }
+  100% {
+    transform: translateY(0); /* 다시 내려오기 */
+  }
+}
+
+/* 회색 줄 스타일 */
+.grayLine {
+  width: 100%; /* 회색 줄이 부모 요소 전체를 차지하도록 */
+  height: 5px; /* 1cm 높이로 설정 */
+  background-color: #e0e0e0; /* 회색 줄 색상 */
+  border-radius: 8px;
+  margin-top: 37px; /* 강아지 이미지와 간격 조정 */
+}
