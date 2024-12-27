@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
                 <Providers>
                     <div
                         id="wrap"
-                        className="mx-auto max-w-sm min-h-svh flex flex-col"
+                        className="mx-auto max-w-sm min-h-svh flex flex-col w-full"
                         /* #FFF0DC' */
                     >
                         {children}
