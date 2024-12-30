@@ -1,10 +1,10 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { Card, Flex, Heading } from '@chakra-ui/react';
-import Image from 'next/image';
 
 const Step = () => {
     const [stepCount, setStepCount] = useState(0); // 걸음수를 저장할 state
+    const [error, setError] = useState(''); // 오류 메시지를 저장할 state
 
     useEffect(() => {
         const requestBluetoothDevice = async () => {
@@ -25,6 +25,7 @@ const Step = () => {
                     sendStepData(steps); // 서버로 걸음수 전송
                 });
             } catch (error) {
+                setError('Bluetooth 연결 실패. Bluetooth를 활성화하고 다시 시도해 주세요.'); // 사용자에게 오류 메시지 표시
                 console.error('Bluetooth 연결 실패:', error);
             }
         };
@@ -34,16 +35,20 @@ const Step = () => {
 
     // 걸음수 데이터를 서버로 전송
     const sendStepData = async (steps) => {
-        const response = await fetch('/api/steps', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ stepCount: steps }),
-        });
+        try {
+            const response = await fetch('/api/steps', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ stepCount: steps }),
+            });
 
-        const data = await response.json();
-        console.log(data);
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('걸음수 데이터 전송 실패:', error);
+        }
     };
 
     return (
@@ -66,22 +71,10 @@ const Step = () => {
                         <span className="text-xl text-gray-700">2.4km</span>
                     </div>
                 </div>
+                {error && <div style={{ color: 'red' }}>{error}</div>} {/* 오류 메시지 표시 */}
             </Flex>
         </Card>
     );
 };
 
-export default Step; // Default export
-export async function handler(req, res) {
-    if (req.method === 'POST') {
-        const { stepCount } = req.body;
-
-        // 서버에서 걸음수 데이터 처리
-        console.log('Received step count:', stepCount);
-
-        // 예: 데이터베이스에 저장하거나 다른 작업을 수행
-        res.status(200).json({ message: 'Step count received', stepCount });
-    } else {
-        res.status(405).json({ message: 'Method Not Allowed' });
-    }
-}
+export default Step;
