@@ -93,21 +93,20 @@ export const Temperature = () => {
                     <div className="notice text-center text-lg font-semibold">날씨 정보를 불러오는 중...</div>
                 ) : weatherData ? (
                     <>
-                        <Flex className="text-2xl font-semibold items-center ">
-                            오늘의 날씨
-                            <Image
-                                src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
-                                alt="Weather icon"
-                                width={100}
-                                height={50}
-                            />
-                        </Flex>
-
                         <div className="flex flex-col space-y-3">
                             <p className="text-md font-semibold leading-relaxed">산책을 통해 활기찬 하루를 맞이해요!</p>
-                            <div className="temp text-sm leading-relaxed">현재 온도: {weatherData.temp} ℃</div>
-                            <div className="weather text-sm leading-relaxed">
-                                현재 날씨: {weatherData.weatherDescription}
+                            <div className="flex gap-2 items-center">
+                                <div className="temp text-sm leading-relaxed">온도: {weatherData.temp} ℃</div>
+
+                                <div className="weather text-sm leading-relaxed">
+                                    날씨: {weatherData.weatherDescription}
+                                </div>
+                                <Image
+                                    src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
+                                    alt="Weather icon"
+                                    width={50}
+                                    height={50}
+                                />
                             </div>
                         </div>
                     </>

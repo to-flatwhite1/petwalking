@@ -59,13 +59,6 @@ const Step = () => {
                 <Heading textAlign="center" size="xl" className="py-0">
                     {stepCount} 걸음
                 </Heading>
-                <Image
-                    alt="Dog illustration"
-                    src="/images/common/dog_left.png"
-                    width={100}
-                    height={100}
-                    className="h-17 w-auto"
-                />
                 <div className="text-center text-lg font-bold mt-2">
                     <div className="flex items-center justify-center space-x-4">
                         <span className="text-xl text-gray-700">68kcal</span>
