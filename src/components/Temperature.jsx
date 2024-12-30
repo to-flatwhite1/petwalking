@@ -87,7 +87,7 @@ export const Temperature = () => {
     }, [getPosition]);
 
     return (
-        <div className="block bg-gray-gradient rounded-xl p-4 sm:p-6 md:p-8 my-4 sm:my-6 md:my-8 mx-0">
+        <div className=" bg-[#D9EAFD] rounded-xl p-4 sm:p-6 md:p-8 my-4 sm:my-6 md:my-8 mx-0">
             <div className="flex flex-col ">
                 {loading ? (
                     <div className="notice text-center text-lg font-semibold">날씨 정보를 불러오는 중...</div>

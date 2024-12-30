@@ -43,16 +43,15 @@ body {
     color: var(--foreground);
     background: var(--background);
 }
+
 @font-face {
-    font-family: 'GmarketSansMedium';
+    font-family: 'establishRetrosansOTF';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff')
+        format('woff');
+    font-weight: normal;
     font-style: normal;
-    font-weight: 500;
-    src: url('/fonts/GmarketSansTTFBold.woff') format('woff');
 }
 
 body {
-    background: url(/bg1.png) no-repeat 0 0;
-    #wrap {
-        opacity: 0.7;
-    }
+    font-family: 'establishRetrosansOTF', sans-serif;
 }
