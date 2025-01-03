@@ -7,7 +7,7 @@ import { FaBars } from 'react-icons/fa6';
 import { Dialog, DialogPanel } from '@headlessui/react';
 
 import { XMarkIcon } from '@heroicons/react/24/outline';
-
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 const navigation = [
     { name: '산책기록', href: '/walk_record' },
     { name: '건강기록', href: '/health_history' },
@@ -18,13 +18,33 @@ const navigation = [
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isClient, setIsClient] = useState(false); // 클라이언트 여부 체크 상태
+    const [user, setUser] = useState(null); // 로그인된 사용자 상태
 
     // 클라이언트에서만 실행하도록 useEffect로 처리
     useEffect(() => {
         setIsClient(true); // 클라이언트에서만 렌더링
+
+        // Firebase 인증 상태 변경을 감지
+        const auth = getAuth();
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setUser(user); // 사용자 정보 업데이트
+        });
+
+        // 컴포넌트 언마운트 시 구독 해제
+        return () => unsubscribe();
     }, []);
 
     if (!isClient) return null; // 클라이언트에서만 렌더링하도록 처리
+
+    // 로그아웃 처리 함수
+    const handleLogout = () => {
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            // 로그아웃 후 처리 (예: 리디렉션)
+        }).catch((error) => {
+            console.error("로그아웃 오류: ", error);
+        });
+    };
 
     return (
         <header className="mx-auto bg-white-700 flex items-center h-16 w-full">
@@ -107,12 +127,21 @@ const Header = () => {
                                     ))}
                                 </div>
                                 <div className="py-6">
-                                    <a
-                                        href="/login"
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                                    >
-                                        Log in
-                                    </a>
+                                {user ? (
+                                        <button
+                                            onClick={handleLogout}
+                                            className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                                        >
+                                            Logout
+                                        </button>
+                                    ) : (
+                                        <Link
+                                            href="/login"
+                                            className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                                        >
+                                            Log in
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
                         </div>
