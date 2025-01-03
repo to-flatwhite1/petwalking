@@ -18,7 +18,7 @@ const PointBox = () => {
                     {/* label */}
                     <Heading size="sm">총</Heading>
                     <Image alt="" src="/images/common/box.png" width={30} height={30} />
-                    <Box>0개</Box>
+                    <Box>0P</Box>
                 </Flex>
             </Button>
         </>

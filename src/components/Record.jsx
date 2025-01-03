@@ -43,7 +43,7 @@ const Record = () => {
                 </GridItem>
             </Grid>
             <HealthRecord />
-            <PointBox />
+
             {/* 카드의 본문 부분 */}
             <Box className="mt-6">
                 <Flex direction="column" gap={4}>
